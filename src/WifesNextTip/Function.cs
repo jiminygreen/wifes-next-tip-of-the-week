@@ -10,7 +10,7 @@ using Amazon.Lambda.APIGatewayEvents;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
-namespace HelloWorld
+namespace Tip
 {
 
     public class Function
@@ -34,12 +34,10 @@ namespace HelloWorld
             var location = await GetCallingIP();
             var body = new Dictionary<string, string>
             {
-                { "message", "hello world" },
-                { "location", location },
                  {"uid", "b2309c98-cfc9-4a05-9c9c-5ebabc3f452b"},
-                 {"updateDate", "2020-06-17T23:30:05.924Z"},
+                 {"updateDate", "2020-06-17T29:24:05.924Z"},
  {"'titleText", "Wifes tip of the Week"},
- {"mainText", "Its not that I think your wrong. Its just that I know I am right. And those dishes arent going to clean themselves"},
+                 {"mainText", "What do you think is going to happen to those clothes on the floor? Will they put themselves away? They won't grow legs and climb into those draws you know!"},
  {"redirectionUrl",  "https://en.wikipedia.org/wiki/The_Five_Love_Languages"}
             };
 
