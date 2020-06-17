@@ -35,7 +35,7 @@ namespace WifesNextTip
             var body = new Dictionary<string, string>
             {
                  {"uid", "b2309c98-cfc9-4a05-9c9c-5ebabc3f452b"},
-                 {"updateDate", "2020-06-17T28:24:05.924Z"},
+                 {"updateDate", "2020-06-17T24:24:05.924Z"},
  {"titleText", "Wifes tip of the Week"},
                  {"mainText", "What do you think is going to happen to those clothes on the floor? Will they put themselves away? They won't grow legs and climb into those draws you know!"},
  {"redirectionUrl",  "https://en.wikipedia.org/wiki/The_Five_Love_Languages"}
