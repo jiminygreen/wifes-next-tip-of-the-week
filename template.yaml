@@ -24,7 +24,6 @@ Resources:
           Properties:
             Path: /wife/next-tip
             Method: get
-      ReservedConcurrentExecutions: 3
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
