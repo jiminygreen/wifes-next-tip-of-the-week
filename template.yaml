@@ -9,7 +9,7 @@ Globals:
     Timeout: 10
 
 Resources:
-  HelloWorldFunction:
+  WifesNextTipFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: ./src/WifesNextTip/
@@ -24,6 +24,7 @@ Resources:
           Properties:
             Path: /wife/next-tip
             Method: get
+      ReservedConcurrentExecutions: 3
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
@@ -31,10 +32,10 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/wife/next-tip/"
   HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
+    Description: "WifesNextTip Lambda Function ARN"
+    Value: !GetAtt WifesNextTipFunction.Arn
   HelloWorldFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+    Description: "Implicit IAM Role created for WifesNextTip function"
+    Value: !GetAtt WifesNextTipFunctionRole.Arn
