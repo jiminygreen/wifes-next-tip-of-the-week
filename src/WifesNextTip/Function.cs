@@ -10,7 +10,7 @@ using Amazon.Lambda.APIGatewayEvents;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
-namespace Tip
+namespace WifesNextTip
 {
 
     public class Function
@@ -36,7 +36,7 @@ namespace Tip
             {
                  {"uid", "b2309c98-cfc9-4a05-9c9c-5ebabc3f452b"},
                  {"updateDate", "2020-06-17T28:24:05.924Z"},
- {"'titleText", "Wifes tip of the Week"},
+ {"titleText", "Wifes tip of the Week"},
                  {"mainText", "What do you think is going to happen to those clothes on the floor? Will they put themselves away? They won't grow legs and climb into those draws you know!"},
  {"redirectionUrl",  "https://en.wikipedia.org/wiki/The_Five_Love_Languages"}
             };

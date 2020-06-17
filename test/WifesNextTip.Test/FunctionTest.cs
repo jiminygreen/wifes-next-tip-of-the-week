@@ -8,8 +8,18 @@ using Xunit;
 using Amazon.Lambda.TestUtilities;
 using Amazon.Lambda.APIGatewayEvents;
 
-namespace HelloWorld.Tests
+namespace WifesNextTip.Tests
 {
+  public class LambdaResponseBody
+  {
+    public string uid {get;set;}
+    public string updateDate {get;set;}
+    public string titleText {get;set;}
+    public string mainText {get;set;}
+    public string redirectionUrl {get;set;}
+    public string failingProperty {get;set;}
+  }
+
   public class FunctionTest
   {
     private static readonly HttpClient client = new HttpClient();
@@ -30,29 +40,40 @@ namespace HelloWorld.Tests
     {
             var request = new APIGatewayProxyRequest();
             var context = new TestLambdaContext();
-            string location = GetCallingIP().Result;
-            Dictionary<string, string> body = new Dictionary<string, string>
-            {
-                { "message", "hello world" },
-                { "location", location },
-            };
+            // string location = GetCallingIP().Result;
+            // Dictionary<string, string> body = new Dictionary<string, string>
+            // {
+            //     { "uid", "test-key-only" },
+            //     { "updateDate", "test-key-only" },
+            //     { "titleText", "Wifes tip of the Week" },
+            //     { "mainText", "test-key-only" },
+            //     { "redirectionUrl", "test-key-only" },
+            // };
 
-            var expectedResponse = new APIGatewayProxyResponse
-            {
-                Body = JsonConvert.SerializeObject(body),
-                StatusCode = 200,
-                Headers = new Dictionary<string, string> { { "Content-Type", "application/json" } }
-            };
+            // var expectedResponse = new APIGatewayProxyResponse
+            // {
+            //     Body = JsonConvert.SerializeObject(body),
+            //     StatusCode = 200,
+            //     Headers = new Dictionary<string, string> { { "Content-Type", "application/json" } }
+            // };
 
-            var function = new Function();
+            
+
+            var function = new WifesNextTip.Function();
             var response = await function.FunctionHandler(request, context);
 
             Console.WriteLine("Lambda Response: \n" + response.Body);
-            Console.WriteLine("Expected Response: \n" + expectedResponse.Body);
+            //Console.WriteLine("Expected Response: \n" + expectedResponse.Body);
 
-            Assert.Equal(expectedResponse.Body, response.Body);
-            Assert.Equal(expectedResponse.Headers, response.Headers);
-            Assert.Equal(expectedResponse.StatusCode, response.StatusCode);
+            var responseBody = JsonConvert.DeserializeObject<LambdaResponseBody>(response.Body);
+
+            Assert.NotNull(responseBody.uid);
+            Assert.NotNull(responseBody.updateDate);
+            Assert.NotNull(responseBody.titleText);
+            Assert.NotNull(responseBody.mainText);
+            Assert.NotNull(responseBody.redirectionUrl);
+            Assert.Null(responseBody.failingProperty);
+            Assert.Equal(200, response.StatusCode);
     }
   }
 }
