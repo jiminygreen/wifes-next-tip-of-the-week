@@ -37,8 +37,8 @@ namespace WifesNextTip
                  {"uid", "b2309c98-cfc9-4a05-9c9c-5ebabc3f452b"},
                  {"updateDate", "2020-06-24T10:24:05.924Z"},
  {"titleText", "Wifes tip of the Week"},
-                 {"mainText", "That is not a good idea. Cooking chocolate is for cooking and can make you sick if it is eaten raw!"},
- {"redirectionUrl",  "https://www.quora.com/Can-cooking-chocolate-be-eaten"}
+                 {"mainText", "Towels need to be washed once a week. Just because they dry you clean, doesn't mean they are!"},
+ {"redirectionUrl",  "https://www.healthline.com/health/how-often-should-you-wash-your-towels#how-often"}
             };
 
             return new APIGatewayProxyResponse
